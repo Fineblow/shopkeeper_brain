@@ -145,8 +145,8 @@ def run_import_graph(import_file_path: str, file_dir: str) -> dict:
 if __name__ == "__main__":
     setup_logging()
 
-    import_file_path = r"E:\11\doc\万用表的使用.pdf"
-    file_dir = r"E:\\11\temp_dir"
+    import_file_path = r"E:\11\doc\万用表RS-12的使用.pdf"
+    file_dir = r"D:\workspace\shopkeeper_brain\knowledge\output\temp_dir"
 
     # 1. 测试编排流程
     final_state = run_import_graph(

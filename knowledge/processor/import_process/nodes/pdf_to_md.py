@@ -136,7 +136,7 @@ if __name__ == "__main__":
     current_node = PdfToMdNode()
     input_state = {
         "import_file_path": r"E:/11/doc/hak180产品安全手册.pdf",
-        "file_dir": r"E:/11/temp_dir"
+        "file_dir": r"D:\workspace\shopkeeper_brain\knowledge\output\temp_dir"
     }
     node_state = current_node(input_state)
     print(json.dumps(node_state, indent=4, ensure_ascii=False))

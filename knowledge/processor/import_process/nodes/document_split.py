@@ -241,14 +241,14 @@ class DocumentSplitNode(BaseNode):
             body = chunk.get('body')
             parent_title = chunk.get('parent_title')
             file_title = chunk.get('file_title')
-            context = f"{title}\n\n{body}"
+            content = f"{title}\n\n{body}"
 
             # 2. 构建最终 chunk 对象
             assemble_chunk=({
                 "title": title,
                 "parent_title": parent_title,
                 "file_title": file_title,
-                "context": context
+                "content": content
             })
 
             # 3. 判断 part 是否存在
@@ -298,13 +298,13 @@ if __name__ == '__main__':
 
     document_node = DocumentSplitNode()
     # 构造状态字典
-    file_path = r"E:\11\temp_dir\hak180产品安全手册\auto\hak180产品安全手册_new.md"
+    file_path = r"D:\workspace\shopkeeper_brain\knowledge\output\temp_dir\hak180产品安全手册\auto\hak180产品安全手册_new.md"
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
 
     state = {
         "file_title": "hak180产品安全手册",
         "md_content": content,
-        "file_dir": r"E:\11\temp_dir\hak180产品安全手册\auto"
+        "file_dir": r"D:\workspace\shopkeeper_brain\knowledge\output\temp_dir\hak180产品安全手册\auto"
     }
     document_node.process(state)

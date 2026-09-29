@@ -62,7 +62,7 @@ if __name__ =="__main__":
     # 方式：直接实例该节点对象，调用 process 方法
     # 1. 构建该节点需要的 state
     input_state = {
-        "file_dir": r"E:\11\temp_dir",
+        "file_dir": r"D:\workspace\shopkeeper_brain\knowledge\output\temp_dir",
         "import_file_path": r"E:\11\doc\hak180产品安全手册.pdf",
     }
 

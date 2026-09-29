@@ -326,7 +326,7 @@ class ImageUploader:
         """
         image_name_urls:Dict[str,str] = {}
         try:
-            minio_client = StorageClients.get_minio()
+            minio_client = StorageClients.get_minio_client()
 
         except Exception as e:
             self.logger.warning(f"MinIO 不可用，所有图片保留本地路径: {e}")
@@ -434,6 +434,6 @@ if __name__ == "__main__":
     node = MarkDownImageNode()
     state = {
         "file_title": "hak180产品安全手册",
-        "md_path": r"E:\11\temp_dir\hak180产品安全手册\auto\hak180产品安全手册.md"
+        "md_path": r"D:\workspace\shopkeeper_brain\knowledge\output\temp_dir\hak180产品安全手册\auto\hak180产品安全手册.md"
     }
     node.process(state)
