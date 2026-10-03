@@ -4,7 +4,7 @@
 
 定义统一的节点接口规范，提供通用功能
 """
-
+import datetime
 from abc import ABC, abstractmethod
 from typing import TypeVar, Optional
 import logging
@@ -71,15 +71,18 @@ class BaseNode(ABC):
             if task_id:
                 # 1.1 更新节点状态
                 add_running_task(task_id, self.name)
+            start = datetime.datetime.now()
 
             # 2. 执行节点
             result = self.process(state)
+            duration = (datetime.datetime.now() - start).total_seconds() # 计算执行时间
 
             # 3. 执行节点成功
-            self.logger.info(f"--- {self.name} 完成 ---")
+            self.logger.info(f"--- {self.name} 完成, 耗时: {duration:.2f}s ---")
             if task_id:
                 # 3.1 更新状态
                 add_done_task(task_id, self.name)
+                add_node_duration(task_id, self.name, duration)
             return result
         except Exception as e:
             self.logger.error(f"{self.name} 执行失败: {e}")
