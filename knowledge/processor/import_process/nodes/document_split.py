@@ -186,7 +186,7 @@ class DocumentSplitNode(BaseNode):
                 keep_separator=False,  # 不保留分隔符
             )
             texts = splitter.split_text(body)
-            if texts<=1:
+            if len(texts)<=1:
                 return [section]
 
             for index,text in enumerate(texts):

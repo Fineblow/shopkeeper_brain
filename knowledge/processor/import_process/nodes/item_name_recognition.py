@@ -2,7 +2,7 @@ import json
 import os
 
 from langchain_core.messages import HumanMessage, SystemMessage
-from langsmith.schemas import DataType
+from pymilvus import DataType
 
 from knowledge.processor.import_process.base import BaseNode, setup_logging
 from knowledge.processor.import_process.exceptions import StateFieldError, ValidationError
@@ -151,7 +151,7 @@ class ItemNameRecognitionNode(BaseNode):
 
     def _creat_item_name_collection(self, item_name_collection, milvus_client):
         schema = milvus_client.create_schema()
-        schema.add_field(field_name='pk', datatype=DataType.VARCHAR, is_primary=True, auto_id=True,max_legth=100)
+        schema.add_field(field_name='pk', datatype=DataType.VARCHAR, is_primary=True, auto_id=True,max_length=100)
         schema.add_field(field_name='file_title', datatype=DataType.VARCHAR, max_length=65535)
         schema.add_field(field_name='item_name', datatype=DataType.VARCHAR, max_length=65535)
         schema.add_field(field_name='dense_vector', datatype=DataType.FLOAT_VECTOR, dim=1024)
