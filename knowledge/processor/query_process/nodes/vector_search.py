@@ -57,7 +57,7 @@ class VectorSearchNode(BaseNode):
                 collection_name=self.config.chunks_collection,
                 search_requests=hybrid_search_request,
                 norm_score=True,
-                output_fields=[["chunk_id","content","item_name"]])
+                output_fields=['chunk_id', 'content', 'item_name', 'title'])
 
             # 8. 获取搜索结果
             if not hybrid_search_reps or not hybrid_search_reps[0]:
