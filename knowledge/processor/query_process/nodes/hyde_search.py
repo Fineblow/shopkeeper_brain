@@ -98,7 +98,7 @@ class HyDeSearchNode(BaseNode):
 
     def _item_name_filte_expr(self, validate_item_names):
         quoted = "','".join(f'"{v}"' for v in validate_item_names)
-        return f"item_name in ('{quoted}')"
+        return f"item_name in [{quoted}]"
 
 if __name__ == "__main__":
     setup_logging()

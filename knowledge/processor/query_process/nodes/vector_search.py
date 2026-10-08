@@ -74,7 +74,7 @@ class VectorSearchNode(BaseNode):
 
     def _validate_state(self, state):
         rewritten_query = state.get("rewritten_query")
-        item_name = state.get("state")
+        item_name = state.get("item_names")
         if not rewritten_query or not isinstance(rewritten_query,str):
             raise StateFieldError(node_name=self.name, field_name='rewritten_query', expected_type=str)
         if not item_name or not isinstance(item_name,list):

@@ -236,11 +236,17 @@ class ItemNameConfirmNode(BaseNode):
         # 4.决策分支   1.无答案 -> 三路检索    2.有答案    2.1 用户选择  2.2 抱歉重问
         self._decide(state, item_name, confirmed, options, rewritten_query)
 
+        # 5.Step5 回填处理 等
+        # 将历史对话写入 state，供下游使用
+        state["history"] = history_messages
+
+        return state
+
     def _decide(self, state, item_name, confirmed, options, rewritten_query):
         """根据对齐结果更新 state"""
         if confirmed:
             state["rewritten_query"] = rewritten_query
-            state["item_name"] = item_name
+            state["item_names"] = item_name
         elif options:
             state['answer'] = (
                 f"我不确定您指的是哪款产品。"
